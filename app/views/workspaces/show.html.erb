@@ -1,0 +1,15 @@
+<h1><%= @workspace.name %></h1>
+
+<% if @workspace.description.present? %>
+  <p><%= @workspace.description %></p>
+<% else %>
+  <p>No description has been added.</p>
+<% end %>
+
+<p>
+  Owned by <%= @workspace.owner.full_name %>
+</p>
+
+<p>
+  <%= link_to "View all workspaces", workspaces_path %>
+</p>

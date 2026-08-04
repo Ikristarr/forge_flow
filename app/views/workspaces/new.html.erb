@@ -1,0 +1,38 @@
+<h1>Create a workspace</h1>
+
+<%= form_with model: @workspace do |form| %>
+  <% if @workspace.errors.any? %>
+    <div>
+      <h2>We could not create this workspace:</h2>
+
+      <ul>
+        <% @workspace.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name,
+        required: true,
+        autofocus: true,
+        placeholder: "Northstar Web Agency" %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description,
+        rows: 5,
+        placeholder: "Describe what this workspace will be used for" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create workspace" %>
+  </div>
+<% end %>
+
+<p>
+  <%= link_to "Back to workspaces", workspaces_path %>
+</p>
