@@ -1,0 +1,9 @@
+one:
+  name: Northstar Agency
+  description: Web design and development projects
+  owner: one
+
+two:
+  name: Acme Studio
+  description: Product and client collaboration
+  owner: two
