@@ -1,0 +1,60 @@
+<h1>Create your ForgeFlow account</h1>
+
+<%= form_with model: @user, url: registration_path do |form| %>
+  <% if @user.errors.any? %>
+    <div>
+      <h2>We could not create your account:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name,
+        required: true,
+        autofocus: true,
+        autocomplete: "given-name" %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name,
+        required: true,
+        autocomplete: "family-name" %>
+  </div>
+
+  <div>
+    <%= form.label :email_address, "Email address" %>
+    <%= form.email_field :email_address,
+        required: true,
+        autocomplete: "email" %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password,
+        required: true,
+        autocomplete: "new-password" %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation,
+        required: true,
+        autocomplete: "new-password" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create account" %>
+  </div>
+<% end %>
+
+<p>
+  Already have an account?
+  <%= link_to "Log in", new_session_path %>
+</p>

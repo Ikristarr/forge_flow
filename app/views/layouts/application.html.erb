@@ -24,6 +24,28 @@
   </head>
 
   <body>
+  <nav>
+    <%= link_to "ForgeFlow", root_path %>
+
+    <% if authenticated? %>
+      <span>You are signed in</span>
+      <%= button_to "Log out", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Create account", new_registration_path %>
+      <%= link_to "Log in", new_session_path %>
+    <% end %>
+  </nav>
+
+  <% if notice %>
+    <p><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p><%= alert %></p>
+  <% end %>
+
+  <main>
     <%= yield %>
-  </body>
+  </main>
+</body>
 </html>
